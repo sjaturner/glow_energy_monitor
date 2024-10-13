@@ -9,6 +9,7 @@ resource_id=$(cat resource.json | jq -r ".[] | select(.classifier==\"$1\") | .re
 
 if [ -z $resource_id ] ; then
     echo argument must be electricity.consumption or gas.consumption
+    exit
 fi
 
 curl -s -X GET \
